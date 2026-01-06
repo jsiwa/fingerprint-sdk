@@ -274,7 +274,7 @@ export default class FingerprintSDK {
       isBot: results.security !== 'clean',
       components: options.debug ? results : null,
       meta: {
-        version: "5.0.0",
+        version: "5.0.2",
         duration: Math.round(performance.now() - start) + 'ms'
       }
     };
