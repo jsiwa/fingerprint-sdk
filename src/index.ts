@@ -61,8 +61,8 @@ const components = {
     return [
       s.width,
       s.height,
-      s.availWidth,
-      s.availHeight,
+      // s.availWidth,
+      // s.availHeight,
       s.colorDepth,
       // pixelDepth 在部分浏览器可能不存在
       (s as any).pixelDepth ?? 0,
