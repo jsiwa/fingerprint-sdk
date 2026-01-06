@@ -1,0 +1,41 @@
+{
+  "name": "fingerprint-sdk",
+  "version": "5.0.0",
+  "description": "A high-entropy, professional-grade browser fingerprinting library for JS/TS (WebGPU/WebGL/Canvas/Audio/Fonts) with basic bot/tamper signals.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm,iife --dts --clean --minify",
+    "dev": "tsup src/index.ts --format cjs,esm,iife --watch --dts",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": [
+    "fingerprint",
+    "browser-fingerprint",
+    "fingerprinting",
+    "device-fingerprint",
+    "device-id",
+    "visitor-id",
+    "security",
+    "anti-fraud",
+    "fraud-detection",
+    "bot-detection",
+    "automation-detection",
+    "tamper-detection",
+    "webgpu",
+    "webgl",
+    "canvas-fingerprint",
+    "audio-fingerprint",
+    "typescript"
+  ],
+  "author": "fingerprint-sdk contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}
