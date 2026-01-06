@@ -50,13 +50,25 @@ async function withIframe(callback: (win: Window, doc: Document) => Promise<any>
 const components = {
   // [新] 屏幕指纹
   screen: () => {
+    // 只使用“屏幕/设备层面”的相对稳定参数，避免把“视口大小”(innerWidth/innerHeight)
+    // 这种会随窗口缩放变化的值混入 visitorId
+    const s = window.screen;
+    const orientation =
+      (s.orientation && typeof s.orientation.type === 'string' ? s.orientation.type : '') || '';
+
+    const dpr = typeof window.devicePixelRatio === 'number' ? window.devicePixelRatio : 1;
+
     return [
-      window.screen.width,
-      window.screen.height,
-      window.screen.availHeight,
-      window.screen.colorDepth,
-      window.innerWidth, // 视口大小也是特征
-      window.devicePixelRatio
+      s.width,
+      s.height,
+      s.availWidth,
+      s.availHeight,
+      s.colorDepth,
+      // pixelDepth 在部分浏览器可能不存在
+      (s as any).pixelDepth ?? 0,
+      // dpr 可能会受系统缩放/浏览器缩放影响，但不会随“拖动窗口大小”变化
+      dpr,
+      orientation
     ].join('x');
   },
 
